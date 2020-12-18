@@ -8,15 +8,17 @@ class Bob {
         this.r=r;
         this.x=x;
         this.y=y;
-        this.Bob = Bodies.circle(x,y,r,options);
-        World.add(world,this.Bob);
+        this.body = Bodies.circle(x,y,r,options);
+        World.add(world,this.body);
     }
     display () {
-        var pos =this.Bob.position;
-        var angle = this.angle;
+        var pos =this.body.position;
+        var angle = this.body.angle;
         push();
         translate(pos.x, pos.y);
         rotate(angle);
+        ellipseMode(RADIUS);
+        ellipse(0,0,this.r,this.r);
         pop();
     }
 };
