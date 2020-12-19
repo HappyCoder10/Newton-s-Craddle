@@ -2,9 +2,9 @@
 class Roof {
     constructor(x, y, width, height) {
       var options = {
-          'restitution':0.8,
-          'friction':1,
-          'density':1.0,
+        /*'restitution':0.8,
+        'friction':1,
+        'density':1.0,*/
           'isStatic': true
       }
   
@@ -15,13 +15,18 @@ class Roof {
       World.add(world, this.body);
     }
     display(){
-      var pos =this.body.position;
+      /*var pos =this.body.position;
       var angle = this.body.angle;
       push();
       translate(pos.x, pos.y);
       rotate(angle);
       fill("yellow");
       rect(0, 500, this.width, this.height);
+      pop();*/
+      
+      push();
+      fill("yellow");
+      rect(this.body.position.x, this.body.position.y, this.width, this.height);
       pop();
     }
   };

@@ -4,6 +4,7 @@ const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
 const Constraint = Matter.Constraint;
+
 var bobObject1, bobObject2, bobObject3, bobObject4, bobObject5;
 var rope1, rope2, rope3, rope4, rope5;
 //var roof;
@@ -22,18 +23,19 @@ function setup() {
 	world = engine.world;
 
   //Create the Bodies Here.
-  roof = new Roof (500,-350,400,20);
-  rope1 = new rope(bobObject1,roof,bobDiameter*1,0);
-  rope2 = new rope(bobObject2.body,roof.body,bobDiameter*2,0);
-  rope3 = new rope(bobObject3.body,roof.body,bobDiameter*3,0);
-  rope4 = new rope(bobObject4.body,roof.body,bobDiameter*4,0);
-  rope5 = new rope(bobObject5.body,roof.body,bobDiameter*5,0);
-  bobObject1 = new Bob(300,400,50,50);
-	bobObject2 = new Bob(400,400,50,50);
-	bobObject3 = new Bob (500,400,50,50);
-	bobObject4 = new Bob (600,400,50,50);
-  bobObject5 = new Bob (700,400,50,50);
+  roof = new Roof (500,100,400,20);
+  
+  bobObject1 = new Bob(300,400,40);
+	bobObject2 = new Bob(400,400,40);
+	bobObject3 = new Bob (500,400,40);
+	bobObject4 = new Bob (600,400,40);
+  bobObject5 = new Bob (700,400,40);
 
+  rope1 = new Rope(bobObject1.body,roof.body,-bobDiameter*8,0);
+  rope2 = new Rope(bobObject2.body,roof.body,-bobDiameter*4,0);
+  rope3 = new Rope(bobObject3.body,roof.body,bobDiameter*0,0);
+  rope4 = new Rope(bobObject4.body,roof.body,bobDiameter*4,0);
+  rope5 = new Rope(bobObject5.body,roof.body,bobDiameter*8,0);
   
 }
 
@@ -62,7 +64,7 @@ function draw() {
 function keyPressed() {
   
   if (keyCode === UP_ARROW){
-    Matter.Body.applyForce(bobObject1.body,bobObject1.body.position,{x:100,y:-100});
+    Matter.Body.applyForce(bobObject1.body,bobObject1.body.position,{x:-200,y:300});
 
   }
 }
